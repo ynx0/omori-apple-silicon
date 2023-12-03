@@ -18,6 +18,7 @@ fi;
 
 echo "Backing up original OMORI copy.."
 if [ -f "${OMORI}/OMORI.original.app" ]; then
+  # TODO be more defensive about copying
   rm -rf "${OMORI}/OMORI.original.app"
 fi;
 cp -r "${OMORI}/OMORI.app" "${OMORI}/OMORI.original.app";
@@ -34,6 +35,8 @@ curl -#L -o greenworks.js https://github.com/SnowpMakes/greenworks-arm64/release
 curl -#L -o greenworks-osxarm64.node https://github.com/SnowpMakes/greenworks-arm64/releases/download/v1.0.0/greenworks-osxarm64.node
 echo "Downloading steamworks api.."
 curl -# -o steam.zip https://dl.snowp.io/omori-apple-silicon/steam.zip
+echo "Downloading patched OmoriFixes plugin (fixes saving)"
+curl -#L -o YIN_OmoriFixes.OMORI https://raw.githubusercontent.com/ynx0/omori-apple-silicon/master/YIN_OmoriFixes.OMORI.PATCHED
 
 echo "Extracting nwjs.."
 unzip -q nwjs.zip
@@ -48,6 +51,7 @@ mv -f ./greenworks.js ./OMORI.app/Contents/Resources/app.nw/js/libs/
 mv -f ./greenworks-osxarm64.node ./OMORI.app/Contents/Resources/app.nw/js/libs/
 mv -f ./steam/libsteam_api.dylib ./OMORI.app/Contents/Resources/app.nw/js/libs/
 mv -f ./steam/libsdkencryptedappticket.dylib ./OMORI.app/Contents/Resources/app.nw/js/libs/
+mv -f ./YIN_OmoriFixes.OMORI ./OMORI.app/Contents/Resources/app.nw/js/plugins
 
 echo "Finished. Moving patched game back to original location.."
 mv "./OMORI.app" "${OMORI}/OMORI.app"
