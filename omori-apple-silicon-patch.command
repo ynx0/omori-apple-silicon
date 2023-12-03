@@ -2,10 +2,13 @@
 
 echo ""
 echo "/-------------------------------------------\\"
-echo "|       OMORI APPLE SILICON PATCH TOOL      |"
-echo "|                                           |"
-echo "| github.com/SnowpMakes/omori-apple-silicon |"
-echo "|             https://snowp.io              |"
+echo "|        OMORI APPLE SILICON PATCH TOOL       |"
+echo "|             (+save crash fix)               |"
+echo "|                                             |"
+echo "|      github.com/ynx0/omori-apple-silicon    |"
+echo "|                                             |"
+echo "|                  Original:                  |"
+echo "|  github.com/SnowpMakes/omori-apple-silicon  |"
 echo "\\-------------------------------------------/"
 echo ""
 
